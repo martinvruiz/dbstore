@@ -1,0 +1,149 @@
+[
+  {
+    "id": "1",
+    "name": "Figura de Goku Super Saiyan",
+    "price": "3500",
+    "category": "Figuras",
+    "description": "Figura detallada de Goku en su transformación Super Saiyan, ideal para coleccionistas."
+  },
+  {
+    "id": "2",
+    "name": "Figura de Vegeta Blue",
+    "price": "3600",
+    "category": "Figuras",
+    "description": "Vegeta en su poderosa forma Super Saiyan Blue, con acabados premium."
+  },
+  {
+    "id": "3",
+    "name": "Figura de Broly",
+    "price": "3800",
+    "category": "Figuras",
+    "description": "Imponente figura de Broly con gran nivel de detalle y presencia."
+  },
+  {
+    "id": "4",
+    "name": "Remera de Goku",
+    "price": "2500",
+    "category": "Ropa",
+    "description": "Remera de algodón con estampado de Goku, cómoda y de alta calidad."
+  },
+  {
+    "id": "5",
+    "name": "Buzo de la Corporación Cápsula",
+    "price": "3200",
+    "category": "Ropa",
+    "description": "Buzo con el logo de la Corporación Cápsula, ideal para fans de Bulma y su equipo."
+  },
+  {
+    "id": "6",
+    "name": "Campera de Saiyajin",
+    "price": "4500",
+    "category": "Ropa",
+    "description": "Campera inspirada en la armadura de los Saiyajin, perfecta para destacar."
+  },
+  {
+    "id": "7",
+    "name": "Llavero de las Esferas del Dragón",
+    "price": "800",
+    "category": "Accesorios",
+    "description": "Llavero con mini réplica de las esferas del dragón, un toque geek para tus llaves."
+  },
+  {
+    "id": "8",
+    "name": "Pulsera de Goku",
+    "price": "1000",
+    "category": "Accesorios",
+    "description": "Pulsera con diseño inspirado en Goku y los colores clásicos del personaje."
+  },
+  {
+    "id": "9",
+    "name": "Gorra de Kame House",
+    "price": "1300",
+    "category": "Accesorios",
+    "description": "Gorra con el icónico logo de la Kame House, ideal para los días soleados."
+  },
+  {
+    "id": "10",
+    "name": "Póster de Goku y Vegeta",
+    "price": "1200",
+    "category": "Posters",
+    "description": "Póster artístico con Goku y Vegeta en acción, para decorar cualquier habitación."
+  },
+  {
+    "id": "11",
+    "name": "Póster de Dragon Ball Z",
+    "price": "1100",
+    "category": "Posters",
+    "description": "Clásico póster con personajes emblemáticos de Dragon Ball Z."
+  },
+  {
+    "id": "12",
+    "name": "Póster de los villanos",
+    "price": "1400",
+    "category": "Posters",
+    "description": "Póster con los villanos más icónicos de la saga Dragon Ball."
+  },
+  {
+    "id": "13",
+    "name": "Manga Dragon Ball Vol. 1",
+    "price": "1800",
+    "category": "Mangas",
+    "description": "Primer volumen del manga original de Dragon Ball, comienza la aventura."
+  },
+  {
+    "id": "14",
+    "name": "Manga Dragon Ball Z Vol. 5",
+    "price": "1900",
+    "category": "Mangas",
+    "description": "Volumen 5 del manga de Dragon Ball Z, con batallas intensas y giros sorprendentes."
+  },
+  {
+    "id": "15",
+    "name": "Manga Dragon Ball Super Vol. 3",
+    "price": "2000",
+    "category": "Mangas",
+    "description": "Tercer volumen de Dragon Ball Super, continúa la nueva era de Goku y sus amigos."
+  },
+  {
+    "id": "16",
+    "name": "Muñeco de Gohan niño",
+    "price": "2200",
+    "category": "Juguetes",
+    "description": "Tierno muñeco de Gohan en su infancia, ideal para los más chicos."
+  },
+  {
+    "id": "17",
+    "name": "Pelota de 4 estrellas",
+    "price": "1900",
+    "category": "Juguetes",
+    "description": "Pelota que imita la esfera del dragón de 4 estrellas, la más querida por Goku."
+  },
+  {
+    "id": "18",
+    "name": "Set de mini figuras Z Fighters",
+    "price": "3000",
+    "category": "Juguetes",
+    "description": "Set de mini figuras con los héroes de Dragon Ball Z, perfecto para jugar o exhibir."
+  },
+  {
+    "id": "19",
+    "name": "Carta Goku Ultra Instinto",
+    "price": "5000",
+    "category": "Cartas Coleccionables",
+    "description": "Carta coleccionable con Goku en Ultra Instinto, edición limitada."
+  },
+  {
+    "id": "20",
+    "name": "Carta Vegeta Super Saiyan Blue",
+    "price": "4800",
+    "category": "Cartas Coleccionables",
+    "description": "Carta de colección de Vegeta en su forma Blue, ideal para coleccionistas."
+  },
+  {
+    "id": "21",
+    "name": "Carta Freezer Dorado",
+    "price": "4200",
+    "category": "Cartas Coleccionables",
+    "description": "Carta brillante de Freezer en su forma dorada, con detalles espectaculares."
+  }
+]

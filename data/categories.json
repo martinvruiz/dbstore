@@ -1,0 +1,31 @@
+[
+      {
+        "id": 1,
+        "name": "Figuras"
+      },
+      {
+        "id": 2,
+        "name": "Ropa"
+      },
+      {
+        "id": 3,
+        "name": "Accesorios"
+      },
+      {
+        "id": 4,
+        "name": "Posters"
+      },
+      {
+        "id": 5,
+        "name": "Mangas"
+      },
+      {
+        "id": 6,
+        "name": "Juguetes"
+      },
+      {
+        "id": 7,
+        "name": "Cartas Coleccionables"
+      }
+    ]
+  
