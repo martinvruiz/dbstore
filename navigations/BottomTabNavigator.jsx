@@ -6,6 +6,7 @@ import CategoriesList from "../screens/CategoriesList";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import CartNavigation from "./CartNavigation";
 import OrderNavigation from "./OrderNavigation";
+import ProfileNavigation from "./ProfileNavigation";
 
 const BottomTabNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -83,6 +84,23 @@ const BottomTabNavigator = () => {
               <View>
                 <AntDesign
                   name="carryout"
+                  size={focused ? 28 : 24}
+                  color={focused ? "black" : "grey"}
+                />
+              </View>
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileNavigation}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return (
+              <View>
+                <AntDesign
+                  name="user"
                   size={focused ? 28 : 24}
                   color={focused ? "black" : "grey"}
                 />

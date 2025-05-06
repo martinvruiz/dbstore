@@ -1,31 +1,31 @@
-import { View, Text } from "react-native";
-import React, { use, useEffect, useState } from "react";
-import Header from "../components/Header";
-import InputForm from "../components/InputForm";
-import ButtonPrimary from "../components/ButtonPrimary";
-import { useDispatch } from "react-redux";
-import { setUser } from "../features/users/UserSlice";
-import { useLogInMutation } from "../services/authServices";
+import { View, Text } from 'react-native'
+import React, { use, useEffect, useState } from 'react'
+import Header from '../components/Header'
+import InputForm from '../components/InputForm'
+import ButtonPrimary from '../components/ButtonPrimary'
+import { useDispatch } from 'react-redux'
+import { setUser } from '../features/users/UserSlice'
+import { useLogInMutation } from '../services/authServices'
 
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [error, setError] = useState(null);
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [error, setError] = useState(null)
 
-  const dispatch = useDispatch();
-  const [triggerLogIn, result] = useLogInMutation();
+  const dispatch = useDispatch()
+  const [triggerLogIn, result] = useLogInMutation()
   const handleLogin = () => {
     try {
-      setError(null);
+      setError(null)
       triggerLogIn({
         email,
         password,
-      });
+      })
     } catch (e) {
-      console.log(e);
-      setError(e.message);
+      console.log(e)
+      setError(e.message)
     }
-  };
+  }
 
   useEffect(() => {
     if (result.isSuccess) {
@@ -33,10 +33,11 @@ const LoginScreen = ({ navigation }) => {
         setUser({
           user: result.data.email,
           token: result.data.idToken,
+          localId: result.data.localId,
         })
-      );
+      )
     }
-  }, [result]);
+  }, [result])
 
   return (
     <View className="flex-1 justify-center items-center bg-background">
@@ -46,17 +47,17 @@ const LoginScreen = ({ navigation }) => {
         <InputForm
           value={password}
           onChangeText={setPassword}
-          placeholder={"Contraseña"}
+          placeholder={'Contraseña'}
         />
         <View className="flex justify-center items-center w-3/4">
           <ButtonPrimary title="Ingresa" onPress={() => handleLogin()} />
         </View>
         <View>
           <Text className="text-white text-md mt-2">
-            ¿No tienes cuenta?{" "}
+            ¿No tienes cuenta?{' '}
             <Text
               className="text-primary font-bold"
-              onPress={() => navigation.navigate("SignUp")}
+              onPress={() => navigation.navigate('SignUp')}
             >
               Regístrate
             </Text>
@@ -64,7 +65,7 @@ const LoginScreen = ({ navigation }) => {
         </View>
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default LoginScreen;
+export default LoginScreen

@@ -1,55 +1,55 @@
-import { View } from "react-native";
-import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import InputForm from "../components/InputForm";
-import ButtonPrimary from "../components/ButtonPrimary";
-import React from "react";
-import { useDispatch } from "react-redux";
-import { useSignUpMutation } from "../services/authServices";
-import { authSchema } from "../validations/authSchema";
-import { setUser } from "../features/users/UserSlice";
+import { View } from 'react-native'
+import { useEffect, useState } from 'react'
+import Header from '../components/Header'
+import InputForm from '../components/InputForm'
+import ButtonPrimary from '../components/ButtonPrimary'
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { useSignUpMutation } from '../services/authServices'
+import { authSchema } from '../validations/authSchema'
+import { setUser } from '../features/users/UserSlice'
 
 const SignUpScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [error, setError] = useState(null)
 
-  const dispatch = useDispatch();
-  const [triggerSignup, result] = useSignUpMutation();
+  const dispatch = useDispatch()
+  const [triggerSignup, result] = useSignUpMutation()
   const handleSignUp = () => {
     try {
-      setError(null);
+      setError(null)
       authSchema.validateSync({
         email,
         password,
         confirmPassword,
-      });
+      })
       triggerSignup({
         email,
         password,
         returnSecureToken: true,
-      });
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-      navigation.navigate("Login");
+      })
+      setEmail('')
+      setPassword('')
+      setConfirmPassword('')
+      navigation.navigate('Login')
     } catch (e) {
-      console.log(e);
-      setError(e.message);
+      console.log(e)
+      setError(e.message)
     }
-  };
+  }
 
   useEffect(() => {
     if (result.isSuccess) {
       dispatch(
         setUser({
-          email: result.data.email,
+          user: result.data.email,
           token: result.data.idToken,
         })
-      );
+      )
     }
-  }, [result]);
+  }, [result])
 
   return (
     <View className="flex-1 justify-center items-center bg-background">
@@ -59,19 +59,19 @@ const SignUpScreen = ({ navigation }) => {
         <InputForm
           value={password}
           onChangeText={setPassword}
-          placeholder={"Contraseña"}
+          placeholder={'Contraseña'}
         />
         <InputForm
           value={confirmPassword}
           onChangeText={setConfirmPassword}
-          placeholder={"Confirmar Contraseña"}
+          placeholder={'Confirmar Contraseña'}
         />
         <View className="flex justify-center items-center w-3/4">
           <ButtonPrimary title="Registrarse" onPress={() => handleSignUp()} />
         </View>
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default SignUpScreen;
+export default SignUpScreen

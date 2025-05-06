@@ -1,16 +1,18 @@
-import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/Counter/CounterSlice";
-import shopReducer from "../features/shop/shopSlice";
-import authReducer from "../features/users/UserSlice";
-import { setupListeners } from "@reduxjs/toolkit/query";
-import shopService from "../services/shopService";
-import { authApi } from "../services/authServices";
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from '../features/Counter/CounterSlice'
+import shopReducer from '../features/shop/shopSlice'
+import authReducer from '../features/users/UserSlice'
+import cartReducer from '../features/Cart/cartSlice'
+import { setupListeners } from '@reduxjs/toolkit/query'
+import shopService from '../services/shopService'
+import { authApi } from '../services/authServices'
 
 const store = configureStore({
   reducer: {
     counter: counterReducer,
     shop: shopReducer,
     auth: authReducer,
+    cart: cartReducer,
     [shopService.reducerPath]: shopService.reducer,
     [authApi.reducerPath]: authApi.reducer,
   },
@@ -18,7 +20,7 @@ const store = configureStore({
     getDefaultMiddleware()
       .concat(shopService.middleware)
       .concat(authApi.middleware),
-});
+})
 
-setupListeners(store.dispatch);
-export default store;
+setupListeners(store.dispatch)
+export default store

@@ -1,33 +1,53 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { db } from "../db/db";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { db } from '../db/db'
 
 const shopService = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: db,
   }),
+  tagTypes: ['ProfileImageGet'],
   endpoints: (builder) => ({
     getCats: builder.query({
-      query: () => "categories.json",
+      query: () => 'categories.json',
     }),
     getProducts: builder.query({
       query: (category) =>
         `products.json?orderBy="category"&equalTo="${category}"`,
       transformResponse: (response) => {
-        const products = Object.values(response);
-        return products;
+        const products = Object.values(response)
+        return products
       },
     }),
     getProductById: builder.query({
       query: (id) => `products.json?orderBy="id"&equalTo="${id}"`,
       transformResponse: (response) => {
-        const product = Object.values(response);
-        return product[0];
+        const product = Object.values(response)
+        return product[0]
       },
     }),
+    getProfileImage: builder.query({
+      query: (localId) => `profileImages/${localId}.json`,
+      providesTags: ['ProfileImageGet'],
+    }),
+    postProfileImage: builder.mutation({
+      query: ({ localId, image }) => ({
+        url: `profileImages/${localId}.json`,
+        method: 'PUT',
+        body: {
+          image: image,
+        },
+      }),
+      invalidatesTags: ['ProfileImageGet'],
+    }),
   }),
-});
+})
 
-export const { useGetCatsQuery, useGetProductsQuery, useGetProductByIdQuery } =
-  shopService;
+export const {
+  useGetCatsQuery,
+  useGetProductsQuery,
+  useGetProductByIdQuery,
+  useGetProfileImageQuery,
+  usePostProfileImageMutation,
+} = shopService
 
-export default shopService;
+export default shopService
