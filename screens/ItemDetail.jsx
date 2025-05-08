@@ -39,8 +39,9 @@ const ItemDetail = ({ route }) => {
             </Pressable>
             <Header title={product.name} />
             <Image
-              source={require('../assets/banner5.jpeg')}
+              source={{ uri: product.image }}
               className="h-72 w-screen py-6 rounded-lg shadow-lg"
+              resizeMode="contain"
             />
             <Text className="text-2xl font-knewave w-5/6 text-center">
               {product.description}

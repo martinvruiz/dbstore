@@ -5,7 +5,7 @@ const shopService = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: db,
   }),
-  tagTypes: ['ProfileImageGet'],
+  tagTypes: ['ProfileImageGet', 'AddressGet'],
   endpoints: (builder) => ({
     getCats: builder.query({
       query: () => 'categories.json',
@@ -39,6 +39,20 @@ const shopService = createApi({
       }),
       invalidatesTags: ['ProfileImageGet'],
     }),
+    getAddress: builder.query({
+      query: (localId) => `address/${localId}.json`,
+      providesTags: ['AddressGet'],
+    }),
+    postAddress: builder.mutation({
+      query: ({ localId, address }) => ({
+        url: `address/${localId}.json`,
+        method: 'PUT',
+        body: {
+          address: address,
+        },
+      }),
+      invalidatesTags: ['AddressGet'],
+    }),
   }),
 })
 
@@ -48,6 +62,8 @@ export const {
   useGetProductByIdQuery,
   useGetProfileImageQuery,
   usePostProfileImageMutation,
+  useGetAddressQuery,
+  usePostAddressMutation,
 } = shopService
 
 export default shopService
