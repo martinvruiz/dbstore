@@ -6,11 +6,14 @@ import ButtonPrimary from '../components/ButtonPrimary'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../features/users/UserSlice'
 import { useLogInMutation } from '../services/authServices'
+import { useDB } from '../hooks/useDB'
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const [error, setError] = useState(null)
+
+  const { insertSession } = useDB()
 
   const dispatch = useDispatch()
   const [triggerLogIn, result] = useLogInMutation()
@@ -29,6 +32,17 @@ const LoginScreen = ({ navigation }) => {
 
   useEffect(() => {
     if (result.isSuccess) {
+      ;(async () => {
+        try {
+          await insertSession({
+            email: result.data.email,
+            token: result.data.idToken,
+            localId: result.data.localId,
+          })
+        } catch (e) {
+          setError(e.message)
+        }
+      })()
       dispatch(
         setUser({
           user: result.data.email,

@@ -5,7 +5,7 @@ const shopService = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: db,
   }),
-  tagTypes: ['ProfileImageGet', 'AddressGet'],
+  tagTypes: ['ProfileImageGet', 'AddressGet', 'GetOrders'],
   endpoints: (builder) => ({
     getCats: builder.query({
       query: () => 'categories.json',
@@ -53,6 +53,18 @@ const shopService = createApi({
       }),
       invalidatesTags: ['AddressGet'],
     }),
+    getOrders: builder.query({
+      query: () => `orders.json`,
+      providesTags: ['GetOrders'],
+    }),
+    postOrder: builder.mutation({
+      query: ({ ...order }) => ({
+        url: 'orders.json',
+        method: 'POST',
+        body: order,
+      }),
+      invalidatesTags: ['GetOrders'],
+    }),
   }),
 })
 
@@ -64,6 +76,8 @@ export const {
   usePostProfileImageMutation,
   useGetAddressQuery,
   usePostAddressMutation,
+  usePostOrderMutation,
+  useGetOrdersQuery,
 } = shopService
 
 export default shopService

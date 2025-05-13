@@ -3,17 +3,28 @@ import React from 'react'
 import ButtonPrimary from '../components/ButtonPrimary'
 import { useSelector } from 'react-redux'
 import { useGetProfileImageQuery } from '../services/shopService'
+import { useDB } from '../hooks/useDB'
 
 const MyProfile = ({ navigation }) => {
   const defaultImage = require('../assets/defaultImage.png')
   const { image, localId, user } = useSelector((state) => state.auth.value)
   const { data: profileImage } = useGetProfileImageQuery(localId)
+  const { deleteSession } = useDB()
   const handleChangePicture = () => {
     navigation.navigate('ImageSelector')
   }
 
   const handleChangeAddress = () => {
     navigation.navigate('Address')
+  }
+
+  const handleLogOut = async () => {
+    try {
+      await deleteSession()
+      navigation.navigate('Login')
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (
@@ -37,6 +48,9 @@ const MyProfile = ({ navigation }) => {
               onPress={handleChangeAddress}
             />
           </View>
+          <View className="w-3/4 items-center mt-5">
+            <ButtonPrimary title="Cerrar sesión" onPress={handleLogOut} />
+          </View>
         </>
       ) : (
         <>
@@ -46,10 +60,10 @@ const MyProfile = ({ navigation }) => {
             resizeMode="contain"
           />
           <View className="w-3/4 items-center mt-5">
-            <ButtonPrimary
-              title="Change picture"
-              onPress={handleChangePicture}
-            />
+            <ButtonPrimary title="Cambiar foto" onPress={handleChangePicture} />
+          </View>
+          <View className="w-3/4 items-center mt-5">
+            <ButtonPrimary title="Cerrar sesión" onPress={handleLogOut} />
           </View>
         </>
       )}

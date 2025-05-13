@@ -1,16 +1,28 @@
 import { View, FlatList, Text, Button } from 'react-native'
 import React from 'react'
 import Header from '../components/Header'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
 import ButtonPrimary from '../components/ButtonPrimary'
+import { usePostOrderMutation } from '../services/shopService'
+import { clearCart } from '../features/Cart/cartSlice'
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.value.items)
   const total = useSelector((state) => state.cart.value.total || 0)
+  const localId = useSelector((state) => state.auth.value.localId)
+
+  const [triggerPostOrder] = usePostOrderMutation()
+  const dispatch = useDispatch()
 
   const handleOrder = () => {
-    console.log('Order placed')
+    triggerPostOrder({
+      items: cartItems,
+      total: total,
+      user: localId,
+      date: new Date().toLocaleDateString(),
+    })
+    dispatch(clearCart())
   }
 
   return (

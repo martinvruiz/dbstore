@@ -10,7 +10,6 @@ import { usePostProfileImageMutation } from '../services/shopService'
 const ImageSelector = ({ navigation }) => {
   const [image, setImage] = useState(null)
   const { localId } = useSelector((state) => state.auth.value)
-  console.log(localId)
   const dispatch = useDispatch()
   const [triggerPostProfileImage, result] = usePostProfileImageMutation()
 
@@ -54,9 +53,9 @@ const ImageSelector = ({ navigation }) => {
             className="w-36 h-36 rounded-full border-2 border-primary"
           />
           <View className="w-3/4 items-center mt-5">
-            <ButtonPrimary title="Change picture" onPress={pickImageHandler} />
+            <ButtonPrimary title="Cambiar foto" onPress={pickImageHandler} />
             <ButtonSecondary
-              title="Confirm picture"
+              title="Confirmar foto"
               onPress={confirmImageHandler}
             />
           </View>
@@ -66,7 +65,7 @@ const ImageSelector = ({ navigation }) => {
           <Text className="text-center text-primary font-bold text-xl">
             No image selected
           </Text>
-          <ButtonPrimary title="Select image" onPress={pickImageHandler} />
+          <ButtonPrimary title="Seleccionar foto" onPress={pickImageHandler} />
         </View>
       )}
     </View>
