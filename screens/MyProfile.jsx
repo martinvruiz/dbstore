@@ -30,8 +30,6 @@ const MyProfile = ({ navigation }) => {
     }
   }
 
-  console.log(user)
-
   return (
     <View className="flex-1 justify-start items-center pt-10 bg-background">
       {image || profileImage ? (

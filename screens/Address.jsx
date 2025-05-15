@@ -22,7 +22,10 @@ const Address = ({ navigation }) => {
             <Text className="text-text text-center font-knewave text-2xl p-2">
               {address?.address}
             </Text>
-            <ButtonPrimary title="Cambiar direccion" />
+            <ButtonPrimary
+              title="Cambiar direccion"
+              onPress={handleAddAddress}
+            />
           </View>
         ) : (
           <View className="w-full items-center justify-center">
