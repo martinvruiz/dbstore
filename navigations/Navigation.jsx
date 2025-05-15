@@ -3,12 +3,12 @@ import { NavigationContainer } from '@react-navigation/native'
 import BottomTabNavigator from './BottomTabNavigator'
 import AuthNavigation from './AuthNavigation'
 import { useDispatch, useSelector } from 'react-redux'
-import { useDB } from '../hooks/useDB'
 import { setUser } from '../features/users/UserSlice'
+import { useServices } from '../hooks/useServices'
 
 const Navigation = () => {
   const { user } = useSelector((state) => state.auth.value)
-  const { getSession } = useDB()
+  const { getSession } = useServices()
   const dispatch = useDispatch()
 
   useEffect(() => {

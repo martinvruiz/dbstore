@@ -6,18 +6,18 @@ import ButtonPrimary from '../components/ButtonPrimary'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../features/users/UserSlice'
 import { useLogInMutation } from '../services/authServices'
-import { useDB } from '../hooks/useDB'
+import { useServices } from '../hooks/useServices'
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const [error, setError] = useState(null)
 
-  const { insertSession } = useDB()
+  const { insertSession, getSession } = useServices()
 
   const dispatch = useDispatch()
   const [triggerLogIn, result] = useLogInMutation()
-  const handleLogin = () => {
+  const handleLogin = async () => {
     try {
       setError(null)
       triggerLogIn({
@@ -35,21 +35,21 @@ const LoginScreen = ({ navigation }) => {
       ;(async () => {
         try {
           await insertSession({
+            localId: result.data.localId,
             email: result.data.email,
             token: result.data.idToken,
-            localId: result.data.localId,
           })
-        } catch (e) {
-          setError(e.message)
+          dispatch(
+            setUser({
+              email: result.data.email,
+              idToken: result.data.idToken,
+              localId: result.data.localId,
+            })
+          )
+        } catch (err) {
+          console.log(err)
         }
       })()
-      dispatch(
-        setUser({
-          user: result.data.email,
-          token: result.data.idToken,
-          localId: result.data.localId,
-        })
-      )
     }
   }, [result])
 

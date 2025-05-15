@@ -21,7 +21,7 @@ const Orders = () => {
   return (
     <View className="flex-1 bg-background pt-4 w-screen">
       <Header title="Orders" />
-      <View className="flex-1 items-center justify-center">
+      <View className="flex-1 items-center justify-center w-screen">
         <FlatList
           data={filteredOrders}
           ListEmptyComponent={

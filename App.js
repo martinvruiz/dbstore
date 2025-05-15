@@ -6,10 +6,10 @@ import Navigation from './navigations/Navigation'
 import { Provider } from 'react-redux'
 import store from './store'
 import { useEffect } from 'react'
-import { useDB } from './hooks/useDB'
+import { useServices } from './hooks/useServices'
 
 export default function App() {
-  const { initDB } = useDB()
+  const { initDB } = useServices()
   const [loaded] = useFonts({
     knewave: Knewave_400Regular,
   })
@@ -23,7 +23,10 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={styles.container} className="bg-background h-screen">
+    <SafeAreaView
+      style={styles.container}
+      className="bg-background h-screen w-screen"
+    >
       <Provider store={store}>
         <Navigation />
       </Provider>

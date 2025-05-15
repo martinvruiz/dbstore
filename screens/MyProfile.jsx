@@ -1,15 +1,18 @@
 import { View, Image, Text } from 'react-native'
-import React from 'react'
+import React, { use, useEffect } from 'react'
 import ButtonPrimary from '../components/ButtonPrimary'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useGetProfileImageQuery } from '../services/shopService'
-import { useDB } from '../hooks/useDB'
+import { useServices } from '../hooks/useServices'
+import { clearUser } from '../features/users/UserSlice'
 
 const MyProfile = ({ navigation }) => {
   const defaultImage = require('../assets/defaultImage.png')
   const { image, localId, user } = useSelector((state) => state.auth.value)
   const { data: profileImage } = useGetProfileImageQuery(localId)
-  const { deleteSession } = useDB()
+  const { deleteSession } = useServices()
+  const dispatch = useDispatch()
+
   const handleChangePicture = () => {
     navigation.navigate('ImageSelector')
   }
@@ -21,11 +24,13 @@ const MyProfile = ({ navigation }) => {
   const handleLogOut = async () => {
     try {
       await deleteSession()
-      navigation.navigate('Login')
+      dispatch(clearUser())
     } catch (e) {
       console.log(e)
     }
   }
+
+  console.log(user)
 
   return (
     <View className="flex-1 justify-start items-center pt-10 bg-background">

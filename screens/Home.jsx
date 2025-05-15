@@ -1,15 +1,13 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
-import Header from "../components/Header";
-import Categories from "../components/Categories";
+import { View, Text, Image } from 'react-native'
+import Header from '../components/Header'
 
-const Home = ({ setCategorySelected }) => {
+const Home = () => {
   return (
     <View className="h-screen w-screen pt-10 bg-background flex items-center">
-      <Header title={"DB Store"} />
+      <Header title={'DB Store'} />
       <Image
-        resizeMode="center"
-        source={require("../assets/banner5.jpeg")}
+        resizeMode="cover"
+        source={require('../assets/banner5.jpeg')}
         className="h-60 w-screen py-6 rounded-lg shadow-lg"
       />
       <Text className="text-3xl py-2 text-text font-knewave">
@@ -24,7 +22,7 @@ const Home = ({ setCategorySelected }) => {
         accesorios y mucho mas!
       </Text>
     </View>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
