@@ -7,6 +7,7 @@ import CartNavigation from './CartNavigation'
 import OrderNavigation from './OrderNavigation'
 import ProfileNavigation from './ProfileNavigation'
 import CategoriesNavigation from './CategoriesNavigation'
+import { Knewave_400Regular } from '@expo-google-fonts/knewave'
 
 const BottomTabNavigator = () => {
   const Tab = createBottomTabNavigator()
@@ -17,12 +18,12 @@ const BottomTabNavigator = () => {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: '#FFA725',
-          height: 80,
-          borderColor: '#6A9C89',
-          borderTopWidth: 0,
+          height: 55,
           position: 'relative',
+          borderColor: 'transparent',
         },
       }}
+      initialRouteName="Home"
     >
       <Tab.Screen
         name="Home"
@@ -34,9 +35,22 @@ const BottomTabNavigator = () => {
                 <AntDesign
                   name="home"
                   size={focused ? 28 : 24}
-                  color={focused ? 'black' : 'grey'}
+                  color={focused ? 'white' : 'grey'}
                 />
               </View>
+            )
+          },
+          tabBarLabel: ({ focused }) => {
+            return (
+              <Text
+                style={{
+                  color: focused ? 'white' : 'grey',
+                  fontSize: 12,
+                  fontFamily: 'knewave',
+                }}
+              >
+                Home
+              </Text>
             )
           },
         }}
@@ -51,9 +65,22 @@ const BottomTabNavigator = () => {
                 <AntDesign
                   name="bars"
                   size={focused ? 28 : 24}
-                  color={focused ? 'black' : 'grey'}
+                  color={focused ? 'white' : 'grey'}
                 />
               </View>
+            )
+          },
+          tabBarLabel: ({ focused }) => {
+            return (
+              <Text
+                style={{
+                  color: focused ? 'white' : 'grey',
+                  fontSize: 12,
+                  fontFamily: 'knewave',
+                }}
+              >
+                Categories
+              </Text>
             )
           },
         }}
@@ -68,9 +95,22 @@ const BottomTabNavigator = () => {
                 <AntDesign
                   name="shoppingcart"
                   size={focused ? 28 : 24}
-                  color={focused ? 'black' : 'grey'}
+                  color={focused ? 'white' : 'grey'}
                 />
               </View>
+            )
+          },
+          tabBarLabel: ({ focused }) => {
+            return (
+              <Text
+                style={{
+                  color: focused ? 'white' : 'grey',
+                  fontSize: 12,
+                  fontFamily: 'knewave',
+                }}
+              >
+                Cart
+              </Text>
             )
           },
         }}
@@ -85,9 +125,22 @@ const BottomTabNavigator = () => {
                 <AntDesign
                   name="carryout"
                   size={focused ? 28 : 24}
-                  color={focused ? 'black' : 'grey'}
+                  color={focused ? 'white' : 'grey'}
                 />
               </View>
+            )
+          },
+          tabBarLabel: ({ focused }) => {
+            return (
+              <Text
+                style={{
+                  color: focused ? 'white' : 'grey',
+                  fontSize: 12,
+                  fontFamily: 'knewave',
+                }}
+              >
+                Orders
+              </Text>
             )
           },
         }}
@@ -102,9 +155,22 @@ const BottomTabNavigator = () => {
                 <AntDesign
                   name="user"
                   size={focused ? 28 : 24}
-                  color={focused ? 'black' : 'grey'}
+                  color={focused ? 'white' : 'grey'}
                 />
               </View>
+            )
+          },
+          tabBarLabel: ({ focused }) => {
+            return (
+              <Text
+                style={{
+                  color: focused ? 'white' : 'grey',
+                  fontSize: 12,
+                  fontFamily: 'knewave',
+                }}
+              >
+                Profile
+              </Text>
             )
           },
         }}
