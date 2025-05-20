@@ -26,11 +26,6 @@ const Cart = () => {
   }
 
   const handleDelete = (id) => {
-    const updatedCartItems = cartItems.filter((item) => item.id !== id)
-    const updatedTotal = updatedCartItems.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-      0
-    )
     dispatch(removeItem({ id }))
   }
 
