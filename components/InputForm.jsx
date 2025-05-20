@@ -1,5 +1,5 @@
-import { View, Text, TextInput } from "react-native";
-import React from "react";
+import { View, Text, TextInput } from 'react-native'
+import React from 'react'
 
 const InputForm = ({ value, onChangeText, placeholder }) => {
   return (
@@ -9,9 +9,10 @@ const InputForm = ({ value, onChangeText, placeholder }) => {
         onChangeText={onChangeText}
         placeholder={placeholder}
         className="h-10 "
+        secureTextEntry={placeholder === 'Contraseña'}
       />
     </View>
-  );
-};
+  )
+}
 
-export default InputForm;
+export default InputForm
