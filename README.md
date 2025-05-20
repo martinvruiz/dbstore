@@ -51,4 +51,4 @@ Proyecto de tienda online desarrollado con React Native, NativeWind y Redux Tool
 
 ## Autor
 
-Martin
+Martin Villalo Ruiz
