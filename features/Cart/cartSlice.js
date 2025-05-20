@@ -46,7 +46,21 @@ export const cartSlice = createSlice({
         }
       }
     },
-    removeItem: () => {},
+    removeItem: (state, action) => {
+      const updatedItems = state.value.items.filter(
+        (item) => item.id !== action.payload.id
+      )
+      const total = updatedItems.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      )
+      state.value = {
+        ...state.value,
+        items: updatedItems,
+        total: total,
+        updated: new Date().toLocaleString(),
+      }
+    },
     clearCart: (state) => {
       state.value.items = []
       state.value.total = 0

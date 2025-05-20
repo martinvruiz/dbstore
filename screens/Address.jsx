@@ -18,7 +18,7 @@ const Address = ({ navigation }) => {
     <View className="flex-1 justify-start items-center pt-10 bg-background">
       <Pressable
         className="w-screen flex items-end p-4"
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.navigate('MyProfile')}
       >
         <AntDesign name="closecircle" size={20} color="black" />
       </Pressable>

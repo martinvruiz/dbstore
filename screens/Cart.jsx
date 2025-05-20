@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
 import ButtonPrimary from '../components/ButtonPrimary'
 import { usePostOrderMutation } from '../services/shopService'
-import { clearCart } from '../features/Cart/cartSlice'
+import { clearCart, removeItem } from '../features/Cart/cartSlice'
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.value.items)
@@ -25,33 +25,53 @@ const Cart = () => {
     dispatch(clearCart())
   }
 
+  const handleDelete = (id) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== id)
+    const updatedTotal = updatedCartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    )
+    dispatch(removeItem({ id }))
+  }
+
   return (
     <View className="flex-1 items-center bg-background pt-4">
       <Header title="Cart" />
-      <FlatList
-        data={cartItems}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <CartItem
-            name={item.name}
-            quantity={item.quantity}
-            price={item.price * item.quantity}
-          />
+      <View className="w-screen h-screen flex-1 items-center justify-center">
+        {cartItems.length > 0 ? (
+          <View className="w-full h-full flex-1 items-center justify-center">
+            <FlatList
+              data={cartItems}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({ item }) => (
+                <CartItem
+                  name={item.name}
+                  quantity={item.quantity}
+                  price={item.price * item.quantity}
+                  onPress={() => handleDelete(item.id)}
+                />
+              )}
+            />
+            <View className="bottom-0 w-full p-8 items-center">
+              <Text
+                className="font-knewave text-2xl text-center"
+                style={{ fontFamily: 'knewave' }}
+              >
+                Total: $ {total}
+              </Text>
+              <ButtonPrimary
+                title="Comprar ahora"
+                onPress={() => {
+                  handleOrder()
+                }}
+              />
+            </View>
+          </View>
+        ) : (
+          <Text className="text-text text-center font-knewave text-2xl p-2">
+            No hay productos en el carrito
+          </Text>
         )}
-      />
-      <View className="bottom-0 w-full p-8 flex items-center">
-        <Text
-          className="font-knewave text-2xl"
-          style={{ fontFamily: 'knewave' }}
-        >
-          Total: $ {total}
-        </Text>
-        <ButtonPrimary
-          title="Comprar ahora"
-          onPress={() => {
-            handleOrder()
-          }}
-        />
       </View>
     </View>
   )

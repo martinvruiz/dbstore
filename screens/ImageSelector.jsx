@@ -49,7 +49,7 @@ const ImageSelector = ({ navigation }) => {
     <View className="flex-1 justify-center items-center bg-background">
       <Pressable
         className="w-screen flex items-end p-4"
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.navigate('MyProfile')}
       >
         <AntDesign name="closecircle" size={20} color="black" />
       </Pressable>
