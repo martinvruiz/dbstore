@@ -1,4 +1,5 @@
-import { View } from 'react-native'
+import { View, Pressable } from 'react-native'
+import AntDesign from '@expo/vector-icons/AntDesign'
 import { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import InputForm from '../components/InputForm'
@@ -53,6 +54,12 @@ const SignUpScreen = ({ navigation }) => {
 
   return (
     <View className="flex-1 justify-center items-center bg-background">
+      <Pressable
+        className="w-screen flex items-end p-4 top-0 absolute"
+        onPress={() => navigation.goBack()}
+      >
+        <AntDesign name="closecircle" size={20} color="black" />
+      </Pressable>
       <Header title="Registro" />
       <View className="w-5/6 bg-secondary py-4 rounded-lg shadow-lg mt-2 flex items-center">
         <InputForm value={email} onChangeText={setEmail} placeholder="Email" />

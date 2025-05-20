@@ -8,6 +8,7 @@ import OrderNavigation from './OrderNavigation'
 import ProfileNavigation from './ProfileNavigation'
 import CategoriesNavigation from './CategoriesNavigation'
 import { Knewave_400Regular } from '@expo-google-fonts/knewave'
+import { Platform } from 'react-native'
 
 const BottomTabNavigator = () => {
   const Tab = createBottomTabNavigator()
@@ -18,7 +19,7 @@ const BottomTabNavigator = () => {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: '#FFA725',
-          height: 55,
+          height: Platform.OS !== 'ios' ? 80 : 60,
           position: 'relative',
           borderColor: 'transparent',
         },

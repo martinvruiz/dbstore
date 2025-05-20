@@ -40,13 +40,21 @@ const ItemDetail = ({ route }) => {
             <Header title={product.name} />
             <Image
               source={{ uri: product.image }}
-              className="h-72 w-screen py-6 rounded-lg shadow-lg"
+              className="h-72 w-screen py-6 rounded-lg"
               resizeMode="contain"
             />
-            <Text className="text-2xl font-knewave w-5/6 text-center">
+            <Text
+              className="text-2xl font-knewave w-5/6 text-center"
+              style={{ fontFamily: 'knewave' }}
+            >
               {product.description}
             </Text>
-            <Text className="font-knewave text-2xl">$ {product.price}</Text>
+            <Text
+              className="font-knewave text-2xl p-2"
+              style={{ fontFamily: 'knewave' }}
+            >
+              $ {product.price}
+            </Text>
             <Counter />
             <ButtonSecondary title="Agregar al carrito" onPress={onAdd} />
           </View>

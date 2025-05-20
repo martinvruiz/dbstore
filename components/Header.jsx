@@ -4,7 +4,10 @@ import React from 'react'
 const Header = ({ title }) => {
   return (
     <View className="w-full">
-      <Text className="text-5xl p-2 text-text font-knewave text-center">
+      <Text
+        className="text-5xl p-2 text-text font-knewave text-center"
+        style={{ fontFamily: 'knewave' }}
+      >
         {title}
       </Text>
     </View>

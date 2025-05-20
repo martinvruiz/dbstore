@@ -40,7 +40,12 @@ const Cart = () => {
         )}
       />
       <View className="bottom-0 w-full p-8 flex items-center">
-        <Text className="font-knewave text-2xl">Total: $ {total}</Text>
+        <Text
+          className="font-knewave text-2xl"
+          style={{ fontFamily: 'knewave' }}
+        >
+          Total: $ {total}
+        </Text>
         <ButtonPrimary
           title="Comprar ahora"
           onPress={() => {

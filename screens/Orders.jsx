@@ -25,7 +25,10 @@ const Orders = () => {
         <FlatList
           data={filteredOrders}
           ListEmptyComponent={
-            <Text className="text-center text-primary font-bold text-lg">
+            <Text
+              className="text-center text-primary font-bold text-lg"
+              style={{ fontFamily: 'knewave' }}
+            >
               No hay órdenes disponibles
             </Text>
           }

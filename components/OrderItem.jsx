@@ -5,10 +5,17 @@ const OrderItem = ({ order }) => {
   return (
     <View className="max-w-5xl h-auto bg-secondary rounded-lg gap-6 shadow-md flex-row items-center justify-between p-4 my-4">
       <View>
-        <Text className="text-xl font-knewave">{order.date}</Text>
+        <Text
+          className="text-xl font-knewave"
+          style={{ fontFamily: 'knewave' }}
+        >
+          {order.date}
+        </Text>
       </View>
       <View className="">
-        <Text className="font-knewave">$ {order.total}</Text>
+        <Text className="font-knewave" style={{ fontFamily: 'knewave' }}>
+          $ {order.total}
+        </Text>
       </View>
     </View>
   )

@@ -1,5 +1,6 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Pressable } from 'react-native'
 import React, { useState } from 'react'
+import AntDesign from '@expo/vector-icons/AntDesign'
 import ButtonPrimary from '../components/ButtonPrimary'
 import ButtonSecondary from '../components/ButtonSecondary'
 import * as ImagePicker from 'expo-image-picker'
@@ -46,6 +47,12 @@ const ImageSelector = ({ navigation }) => {
 
   return (
     <View className="flex-1 justify-center items-center bg-background">
+      <Pressable
+        className="w-screen flex items-end p-4"
+        onPress={() => navigation.goBack()}
+      >
+        <AntDesign name="closecircle" size={20} color="black" />
+      </Pressable>
       {image ? (
         <>
           <Image

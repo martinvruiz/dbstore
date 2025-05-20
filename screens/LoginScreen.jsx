@@ -67,11 +67,15 @@ const LoginScreen = ({ navigation }) => {
           <ButtonPrimary title="Ingresa" onPress={() => handleLogin()} />
         </View>
         <View>
-          <Text className="text-white text-md mt-2">
+          <Text
+            className="text-white text-md mt-2"
+            style={{ fontFamily: 'knewave' }}
+          >
             ¿No tienes cuenta?{' '}
             <Text
               className="text-primary font-bold"
               onPress={() => navigation.navigate('SignUp')}
+              style={{ fontFamily: 'knewave' }}
             >
               Regístrate
             </Text>

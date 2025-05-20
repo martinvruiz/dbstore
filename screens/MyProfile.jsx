@@ -40,7 +40,12 @@ const MyProfile = ({ navigation }) => {
             resizeMode="cover"
           />
           <View className="pt-8">
-            <Text className="font-knewave text-2xl">{user.user}</Text>
+            <Text
+              className="font-knewave text-2xl"
+              style={{ fontFamily: 'knewave' }}
+            >
+              {user.user}
+            </Text>
           </View>
           <View className="w-3/4 items-center mt-5">
             <ButtonPrimary title="Cambiar foto" onPress={handleChangePicture} />
