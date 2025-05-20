@@ -15,7 +15,7 @@ Proyecto de tienda online desarrollado con React Native, NativeWind y Redux Tool
 
 2. Instala las dependencias:
    npm install
-   # o
+   o
    yarn install
 
 3. Instala dependencias nativas si usas Expo:
@@ -24,10 +24,10 @@ Proyecto de tienda online desarrollado con React Native, NativeWind y Redux Tool
 ## Uso
 
 - Para correr en Android:
-   npx expo start --android
+  npx expo start --android
 
 - Para correr en Web:
-   npx expo start --web
+  npx expo start --web
 
 ## Estructura principal
 
