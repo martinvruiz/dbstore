@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { setUser } from '../features/users/UserSlice'
 import { useLogInMutation } from '../services/authServices'
 import { useServices } from '../hooks/useServices'
+import { Toast } from 'toastify-react-native'
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState()
@@ -50,6 +51,9 @@ const LoginScreen = ({ navigation }) => {
           console.log(err)
         }
       })()
+    }
+    if (result.isError) {
+      Toast.error('Email o contraseña invalidos')
     }
   }, [result])
 

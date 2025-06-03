@@ -9,7 +9,9 @@ const InputForm = ({ value, onChangeText, placeholder }) => {
         onChangeText={onChangeText}
         placeholder={placeholder}
         className="h-10 "
-        secureTextEntry={placeholder === 'Contraseña'}
+        secureTextEntry={
+          placeholder === 'Contraseña' || placeholder === 'Confirmar Contraseña'
+        }
         fontFamily="knewave"
       />
     </View>

@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { useSignUpMutation } from '../services/authServices'
 import { authSchema } from '../validations/authSchema'
 import { setUser } from '../features/users/UserSlice'
+import { Toast } from 'toastify-react-native'
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState('')
@@ -38,6 +39,7 @@ const SignUpScreen = ({ navigation }) => {
     } catch (e) {
       console.log(e)
       setError(e.message)
+      Toast.error(e.message)
     }
   }
 
@@ -49,6 +51,7 @@ const SignUpScreen = ({ navigation }) => {
           token: result.data.idToken,
         })
       )
+      Toast.success('Cuenta creada!')
     }
   }, [result])
 

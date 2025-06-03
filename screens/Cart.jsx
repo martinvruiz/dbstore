@@ -1,11 +1,11 @@
-import { View, FlatList, Text, Button } from 'react-native'
-import React from 'react'
+import { View, FlatList, Text } from 'react-native'
 import Header from '../components/Header'
 import { useDispatch, useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
 import ButtonPrimary from '../components/ButtonPrimary'
 import { usePostOrderMutation } from '../services/shopService'
 import { clearCart, removeItem } from '../features/Cart/cartSlice'
+import { Toast } from 'toastify-react-native'
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.value.items)
@@ -23,10 +23,28 @@ const Cart = () => {
       date: new Date().toLocaleDateString(),
     })
     dispatch(clearCart())
+    Toast.show({
+      type: 'success',
+      text1: `Orden creada!`,
+      visibilityTime: 1000,
+      backgroundColor: '#6A9C89',
+      textColor: 'white',
+      progressBarColor: 'white',
+      useModal: true,
+    })
   }
 
   const handleDelete = (id) => {
     dispatch(removeItem({ id }))
+    Toast.show({
+      type: 'warn',
+      text1: `Item eliminado`,
+      visibilityTime: 1000,
+      backgroundColor: '#C1D8C3',
+      textColor: 'black',
+      progressBarColor: 'black',
+      useModal: true,
+    })
   }
 
   return (

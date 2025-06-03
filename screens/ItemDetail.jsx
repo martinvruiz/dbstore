@@ -1,8 +1,6 @@
 import { ScrollView, Text, Image, Pressable, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import ButtonSecondary from '../components/ButtonSecondary'
-import ButtonPrimary from '../components/ButtonPrimary'
 import AntDesign from '@expo/vector-icons/AntDesign'
 import { useNavigation } from '@react-navigation/native'
 import Counter from '../components/Counter'
@@ -10,6 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useGetProductByIdQuery } from '../services/shopService'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItem } from '../features/Cart/cartSlice'
+import { Toast } from 'toastify-react-native'
 
 const ItemDetail = ({ route }) => {
   const navigation = useNavigation()
@@ -21,6 +20,15 @@ const ItemDetail = ({ route }) => {
   const { data: product } = useGetProductByIdQuery(selectedItem)
   const onAdd = () => {
     dispatch(addItem({ ...product, quantity: counterValue }))
+    Toast.show({
+      type: 'success',
+      text1: `${counterValue} item/s añadido!`,
+      visibilityTime: 1000,
+      backgroundColor: '#6A9C89',
+      textColor: 'white',
+      progressBarColor: 'white',
+      useModal: true,
+    })
   }
 
   return (
@@ -28,7 +36,7 @@ const ItemDetail = ({ route }) => {
       {product ? (
         <ScrollView
           className="bg-background font-knewave"
-          contentContainerStyle={{ paddingBottom: insets.bottom + 160 }}
+          contentContainerStyle={{ paddingBottom: insets.bottom + 20 }}
         >
           <View className="relative w-screen flex items-center gap-2 bg-background font-knewave">
             <Pressable

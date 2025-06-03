@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 import { useEffect } from 'react'
 import { useServices } from './hooks/useServices'
+import ToastProvider from 'toastify-react-native'
 
 export default function App() {
   const { initDB } = useServices()
@@ -28,6 +29,7 @@ export default function App() {
       className="bg-background h-screen w-screen"
     >
       <Provider store={store}>
+        <ToastProvider />
         <Navigation />
       </Provider>
     </SafeAreaView>
