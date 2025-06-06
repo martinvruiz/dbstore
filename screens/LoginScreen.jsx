@@ -60,7 +60,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View className="flex-1 justify-center items-center bg-background">
       <Header title="Log In" />
-      <View className="w-5/6 bg-secondary py-4 rounded-lg shadow-lg mt-2 flex items-center">
+      <View className="w-5/6 md:w-2/4 bg-secondary py-4 rounded-lg shadow-lg mt-2 flex items-center">
         <InputForm value={email} onChangeText={setEmail} placeholder="Email" />
         <InputForm
           value={password}

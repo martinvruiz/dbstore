@@ -15,7 +15,7 @@ const ProductItem = ({ product }) => {
 
   return (
     <Pressable
-      className="w-5/6 p-10 my-4 bg-primary rounded-lg shadow-lg"
+      className="w-5/6 md:w-2/4 p-10 my-4 bg-primary rounded-lg shadow-lg"
       onPress={() => handlePress()}
     >
       <Text

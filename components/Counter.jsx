@@ -13,7 +13,7 @@ const Counter = () => {
   const dispatch = useDispatch()
   const [toAdd, setToAdd] = useState(0)
   return (
-    <View className="flex items-center bg-background font-knewave">
+    <View className=" flex items-center bg-background font-knewave">
       <View className="flex-row items-center justify-between font-knewave">
         <Pressable
           className="bg-primary p-3 w-20"
@@ -33,7 +33,7 @@ const Counter = () => {
           <Text className="text-center">+</Text>
         </Pressable>
       </View>
-      <View className="w-screen flex items-center gap-2 pt-2 font-knewave">
+      <View className="w-full flex items-center gap-2 pt-2 font-knewave">
         <TextInput
           value={toAdd}
           onChangeText={setToAdd}

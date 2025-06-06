@@ -1,4 +1,4 @@
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Dimensions } from 'react-native'
 import React from 'react'
 
 import ButtonPrimary from './ButtonPrimary'
@@ -20,19 +20,25 @@ const Categories = ({ navigation }) => {
   }
 
   return (
-    <FlatList
-      showsVerticalScrollIndicator={false}
-      data={data}
-      renderItem={({ item }) => (
-        <View className="w-screen flex items-center">
-          <ButtonPrimary
-            title={item}
-            onPress={() => handleCategoryPress(item)}
-          />
-        </View>
-      )}
-      keyExtractor={(item) => item}
-    />
+    <View className="flex-1 bg-background w-screen ">
+      <FlatList
+        showsVerticalScrollIndicator={true}
+        data={data}
+        renderItem={({ item }) => (
+          <View className="flex items-center my-1 ">
+            <ButtonPrimary
+              title={item}
+              onPress={() => handleCategoryPress(item)}
+            />
+          </View>
+        )}
+        keyExtractor={(item) => item}
+        contentContainerStyle={{
+          paddingVertical: 16,
+          paddingBottom: 90,
+        }}
+      />
+    </View>
   )
 }
 

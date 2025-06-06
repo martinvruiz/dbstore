@@ -4,7 +4,7 @@ import React from 'react'
 const ButtonPrimary = ({ title, onPress }) => {
   return (
     <Pressable
-      className="w-5/6 my-2 bg-primary rounded-lg shadow-lg"
+      className="w-5/6 md:w-2/4 my-2 bg-primary rounded-lg shadow-lg"
       onPress={onPress}
     >
       <Text

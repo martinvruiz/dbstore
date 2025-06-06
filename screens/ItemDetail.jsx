@@ -36,9 +36,12 @@ const ItemDetail = ({ route }) => {
       {product ? (
         <ScrollView
           className="bg-background font-knewave"
-          contentContainerStyle={{ paddingBottom: insets.bottom + 20 }}
+          contentContainerStyle={{
+            paddingBottom: insets.bottom + 20,
+            alignItems: 'center',
+          }}
         >
-          <View className="relative w-screen flex items-center gap-2 bg-background font-knewave">
+          <View className="relative w-screen md:w-3/4 flex items-center gap-2 bg-background font-knewave">
             <Pressable
               className="w-screen flex items-end p-4"
               onPress={() => navigation.goBack()}
@@ -52,7 +55,7 @@ const ItemDetail = ({ route }) => {
               resizeMode="contain"
             />
             <Text
-              className="text-2xl font-knewave w-5/6 text-center"
+              className="text-2xl font-knewave w-5/6 md:w-2/4 text-center"
               style={{ fontFamily: 'knewave' }}
             >
               {product.description}

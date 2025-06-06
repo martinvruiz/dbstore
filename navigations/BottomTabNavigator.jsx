@@ -1,5 +1,4 @@
 import { View, Text } from 'react-native'
-import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeNavigation from './HomeNavigation'
 import AntDesign from '@expo/vector-icons/AntDesign'
@@ -7,11 +6,16 @@ import CartNavigation from './CartNavigation'
 import OrderNavigation from './OrderNavigation'
 import ProfileNavigation from './ProfileNavigation'
 import CategoriesNavigation from './CategoriesNavigation'
-import { Knewave_400Regular } from '@expo-google-fonts/knewave'
 import { Platform } from 'react-native'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
 const BottomTabNavigator = () => {
-  const Tab = createBottomTabNavigator()
+  const Top = createMaterialTopTabNavigator()
+  const Bottom = createBottomTabNavigator()
+
+  const isWeb = Platform.OS === 'web'
+
+  const Tab = isWeb ? Top : Bottom
 
   return (
     <Tab.Navigator

@@ -64,7 +64,7 @@ const SignUpScreen = ({ navigation }) => {
         <AntDesign name="closecircle" size={20} color="black" />
       </Pressable>
       <Header title="Registro" />
-      <View className="w-5/6 bg-secondary py-4 rounded-lg shadow-lg mt-2 flex items-center">
+      <View className="w-5/6 md:w-2/4 bg-secondary py-4 rounded-lg shadow-lg mt-2 flex items-center">
         <InputForm value={email} onChangeText={setEmail} placeholder="Email" />
         <InputForm
           value={password}
